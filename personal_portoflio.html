@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="personal_portfolio_stylesheet.css">
+</head>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const dropdowns = document.querySelectorAll('.dropdown');
+
+        dropdowns.forEach(function (dropdown) {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+            const content = dropdown.querySelector('.dropdown-content');
+
+            toggle.addEventListener('click', function () {
+                dropdown.classList.toggle('active'); // Rotate arrow
+                content.style.display = (content.style.display === 'block') ? 'none' : 'block'; // Toggle dropdown visibility
+            });
+        });
+    });
+</script>
+
+<body>
+    <div class="container">
+        <nav class="side-nav">
+            <ul>
+                <li><a href="#top">About Me</a></li>
+
+                <li class="dropdown">
+                    <span class="dropdown-toggle">BRANDING</span>
+                    <ul class="dropdown-content">
+                        <li><a href="#project1">Project 1</a></li>
+                        <li><a href="#project2">Project 2</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <span class="dropdown-toggle">PRODUCT</span>
+                    <ul class="dropdown-content">
+                        <li><a href="#project3">Project 1</a></li>
+                        <li><a href="#project4">Project 2</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <span class="dropdown-toggle">VISUALS</span>
+                    <ul class="dropdown-content">
+                        <li><a href="#project5">Project 1</a></li>
+                        <li><a href="#project6">Project 2</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/hamin-jin" target="_blank">
+                    <img src="assets/icons8-linkedin.svg" alt="LinkedIn" />
+                </a>
+                <a href="https://www.instagram.com/hmn.jin/" target="_blank">
+                    <img src="assets/icons8-instagram.svg" alt="Instagram" />
+                </a>
+            </div>
+        </nav>
+
+        <main>
+            <section id="about" class="section">
+                <h1>HAMIN JIN</h1>
+                <p>I am a creative designer focused on building sleek, modern, and user-friendly designs. My work
+                    emphasizes minimalism, precision, and attention to detail.</p>
+            </section>
+
+            <!-- <section id="project1" class="section">
+                <h2>Project 1</h2>
+                <p>Project 1 showcases an elegant, modern branding design for a new-age tech startup.</p>
+            </section>
+
+            <section id="project2" class="section">
+                <h2>Project 2</h2>
+                <p>This project is a responsive web design for a digital platform, focusing on clean user experiences.
+                </p>
+            </section>
+
+            <section id="project3" class="section">
+                <h2>Project 3</h2>
+                <p>A mobile app interface designed for seamless interactions and minimalistic usability.</p>
+            </section> -->
+
+            <section id="contact" class="section">
+                <h2>Contact</h2>
+                <p>Reach out at <a href="mailto:haminjin@usc.edu">haminjin@usc.edu</a> for collaboration
+                    inquiries.</p>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
