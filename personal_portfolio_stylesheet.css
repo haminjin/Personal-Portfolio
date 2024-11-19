@@ -80,8 +80,46 @@ body {
     display: inline-block;
     width: 25px;
     height: 25px;
-    transition: transform 0.3s ease;
     margin-left: 10px;
+    animation: wiggle 4.6s ease-in-out infinite;
+}
+
+.dropdown.active .dropdown-toggle::after {
+    animation: none;
+    transition: transform 0.3s ease;
+    transform: rotate(180deg);
+}
+
+@keyframes wiggle {
+    0% {
+        transform: rotate(0deg);
+        /* Start in neutral state */
+    }
+
+    3.25% {
+        transform: rotate(-15deg);
+        /* Tilt left */
+    }
+
+    6.5% {
+        transform: rotate(15deg);
+        /* Tilt right */
+    }
+
+    9.75% {
+        transform: rotate(-15deg);
+        /* Tilt left again */
+    }
+
+    13% {
+        transform: rotate(0deg);
+        /* Back to neutral position */
+    }
+
+    100% {
+        transform: rotate(0deg);
+        /* Idle state for the remaining time */
+    }
 }
 
 .dropdown-content {
@@ -114,10 +152,6 @@ body {
     color: #007aff;
 }
 
-.section {
-    margin-bottom: 80px;
-}
-
 .social-icons {
     display: flex;
     gap: 15px;
@@ -138,6 +172,144 @@ body {
     opacity: 0.7;
 }
 
+.section {
+    margin-bottom: 50px;
+}
+
+.section ol {
+    padding-left: 30px;
+}
+
+.section ol li {
+    margin-bottom: 7px;
+}
+
+/* animating tag line */
+.animated-line span {
+    font-family: 'IBM Plex Serif', serif;
+    font-weight: lighter;
+    display: inline-block;
+    animation: smooth-jump 0.8s ease-in-out 1;
+    transform: translateY(0);
+}
+.animated-line span:nth-child(1) {animation-delay: 0.4s; }
+.animated-line span:nth-child(2) {animation-delay: 0.6s; }
+.animated-line span:nth-child(3) {animation-delay: 0.8s; }
+.animated-line span:nth-child(4) {animation-delay: 1s; }
+.animated-line span:nth-child(5) {animation-delay: 1.2s; }
+.animated-line span:nth-child(6) {animation-delay: 1.4s; }
+.animated-line span:nth-child(7) {animation-delay: 1.6s; }
+.animated-line span:nth-child(8) {animation-delay: 1.8s; }
+.animated-line span:nth-child(9) {animation-delay: 2s; }
+.animated-line span:nth-child(10) {animation-delay: 2.2s; }
+.animated-line span:nth-child(11) {animation-delay: 2.4s; }
+.animated-line span:nth-child(12) {animation-delay: 2.6s; }
+.animated-line span:nth-child(13) {animation-delay: 2.8s; }
+
+@keyframes smooth-jump {
+    0% {
+        transform: translateY(0);
+    }
+
+    400% {
+        transform: translateY(-12px);
+    }
+
+    60% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.animated-line:hover span {
+    animation: smooth-jump-hover 0.8s ease-in-out;
+}
+
+.animated-line:hover span:nth-child(1) {animation-delay: 0.2s; }
+.animated-line:hover span:nth-child(2) {animation-delay: 0.4s; }
+.animated-line:hover span:nth-child(3) {animation-delay: 0.6s; }
+.animated-line:hover span:nth-child(4) {animation-delay: 0.8s; }
+.animated-line:hover span:nth-child(5) {animation-delay: 1s; }
+.animated-line:hover span:nth-child(6) {animation-delay: 1.2s; }
+.animated-line:hover span:nth-child(7) {animation-delay: 1.4s; }
+.animated-line:hover span:nth-child(8) {animation-delay: 1.6s; }
+.animated-line:hover span:nth-child(9) {animation-delay: 1.8s; }
+.animated-line:hover span:nth-child(10) {animation-delay: 2.0s; }
+.animated-line:hover span:nth-child(11) {animation-delay: 2.2s; }
+.animated-line:hover span:nth-child(12) {animation-delay: 2.4s; }
+.animated-line:hover span:nth-child(13) {animation-delay: 2.6s; }
+
+
+/* Define a hover-specific animation */
+@keyframes smooth-jump-hover {
+    0% {
+        transform: translateY(0);
+    }
+
+    400% {
+        transform: translateY(-12px);
+    }
+
+    60% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* animating skills list */
+#about h3 {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-delay: 3s;
+}
+
+ol li {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Stagger the animation for each item */
+ol li:nth-child(1) {animation-delay: 3.2s; }
+ol li:nth-child(2) {animation-delay: 3.4s; }
+ol li:nth-child(3) {animation-delay: 3.6s; }
+ol li:nth-child(4) {animation-delay: 3.8s; }
+ol li:nth-child(5) {animation-delay: 4.0s; }
+ol li:nth-child(6) {animation-delay: 4.2s; }
+
+/* Define the fadeInUp animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.headshot {
+    height: 200px;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+*/
+
 /* Main content styling */
 main {
     width: 80%;
@@ -153,10 +325,18 @@ h1 {
 }
 
 h2 {
-    font-size: 2.2rem;
-    font-weight: 600;
+    font-size: 2rem;
+    font-weight: 300;
     margin-bottom: 20px;
     color: #FAF9F6;
+}
+
+h3 {
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #FAF9F6;
+    margin-bottom: 5px;
 }
 
 p {
